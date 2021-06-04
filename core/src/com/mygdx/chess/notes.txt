@@ -1,0 +1,64 @@
+Tasks:
+- clickable pieces (done) 05/27/2021
+- pawn logic (done) 05/28/2021
+- knight logic (done) 05/27/2021
+- rook logic (done) 05/28/2021
+- bishop logic (done) 05/28/2021
+- queen logic (done) 05/28/2021
+- king logic (done) 06/02/2021
+- check (done) 06/01/2021
+- checkmate
+- discovered check (done) 06/01/2021
+- pin (done) 06/02/2021
+- valid moves (done) 05/27/2021
+- castling (done) 06/02/2021
+- en passant
+- promotion (done) 06/02/2021
+- turns (done) 05/27/2021
+- displaying text (partly done)
+
+
+0=empty, 1=pawn, 2=bishop, 3=knight, 4=rook, 5=king, 6=queen [+]white [-]black
+
+Ideas:
+    For pinning a piece, maybe try temporarily making the square empty, then scanning if will be checked, and if so,
+    get no valid moves.
+
+
+LOG OF ISSUES:
+
+    05/27/2021
+        When selecting a movable piece twice, you can then select any of your other pieces and then
+        move it to any of the original piece's valid squares (should be fixed now)
+
+    05/30/2021
+        The check seem to be working, but the king can still move into squares where
+        he is still in check, other pieces also can't block for the king yet
+
+    05/31/2021
+        The PieceRules.java class is approaching 1000 lines which is way too long, I've decided to refactor it by
+        splitting it into smaller piece classes, I'll most likely repurpose the PieceRules class by having it
+        contain methods that all the piece classes can use and then renaming it
+
+        Refactoring has begun (I really hope this will not take forever)
+
+        OKAY I HAVE MANAGED TO SPLIT THE THINGS INTO SEPARATE CLASSES WITHOUT BREAKING THE ENTIRE PROGRAM
+
+    06/02/2021
+        King can sometimes move into squares that bishop has vision of (fixed)
+
+        My idea for pinning pieces only works partially. The issue is currently the way it checks for pins is
+        temporarily setting the position of the piece false and then checks for attacks on the king. This approach
+        does not take into consideration of the cases where pieces move and still blocks the king from check.
+        I probably will need to use ScanForCheck method instead of ScanForPseudoCheck method to fix.
+
+        Pinning should fully work now.
+
+        king can't move top right rn (omg fixed it was 1 line what was messed up)
+
+Reflection:
+    The project was finished on 06/03/2021. This is my first time creating any type of game or using a framework so I'm
+    pretty proud of what I've accomplished. I've learned many things while working on this project and I have much more
+    to learn. One thing I can definitely improve is the structure and organization of my code. The methods and classes
+    in this project seem to be all around the place with no actual organization, and I'm pretty sure I'm doing some bad
+    code practice. Next time I might try starting off with an algorithm or pseudocode to structure my program better.
