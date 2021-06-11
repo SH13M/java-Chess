@@ -15,5 +15,6 @@ public class DesktopLauncher {
 		config.foregroundFPS = 144;
 		config.resizable = false;
 		new LwjglApplication(new Chess(), config);
+		// comment test line
 	}
 }
