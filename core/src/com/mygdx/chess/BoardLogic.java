@@ -267,12 +267,12 @@ public class BoardLogic extends ApplicationAdapter {
                 if (clicked_y == 0 && clicked_x == 0
                         && board[this.y][this.x] == 4
                         && !white_qrook_moved) {
-                    white_krook_moved = true;
+                    white_qrook_moved = true;
                 }
                 if (clicked_y == 7 && clicked_x == 0
                         && board[this.y][this.x] == -4
                         && !black_qrook_moved) {
-                    black_krook_moved = true;
+                    black_qrook_moved = true;
                 }
 
                 board[clicked_y][clicked_x] = 0;
